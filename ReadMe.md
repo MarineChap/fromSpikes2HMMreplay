@@ -1,10 +1,18 @@
-#Packaging repository for the clusterless decoding project
+# Packaging repository for the clusterless decoding project
 
 + Step 1 : Install docker https://docs.docker.com/desktop
 
++ Step 2: Authentificate to the github registry with a classic token : 
+
+```
+export CR_PAT=YOUR_TOKEN
+echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
+```
+For more informations, https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry
+
 + Step 2 : Download and run the docker image from github registry 
 
-`docker run -p 8888:8888 -v /path/to/data:/home/jovyan/data -v /path/to/HippocampalSWRDynamics/project:/home/jovyan/HippocampalSWRDynamics ghcr.io/marinechap/fromspikes2hmmreplay:1.0.1`
+`docker run -p 8888:8888 -v /path/to/data:/home/jovyan/data -v /path/to/HippocampalSWRDynamics/project:/home/jovyan/HippocampalSWRDynamics ghcr.io/hpenagos/fromspikes2hmmreplay:1.0.1
 
 > :warning: In waiting for the right github permission, the docker image is pushed on a fork on my github but will be removed later. 
 
@@ -24,4 +32,4 @@
 If you are always re-installing a library the best is to add it in the requirements.txt file, push the modification in github, then push a tag. 
 The new image will be available few minutes later. 
 
-`docker run -p 8888:8888 -v /path/to/data:/home/jovyan/data -v /path/to/HippocampalSWRDynamics/project:/home/jovyan/HippocampalSWRDynamics ghcr.io/marinechap/fromspikes2hmmreplay:{tag}`
+`docker run -p 8888:8888 -v /path/to/data:/home/jovyan/data -v /path/to/HippocampalSWRDynamics/project:/home/jovyan/HippocampalSWRDynamics ghcr.io/hpenagos/fromspikes2hmmreplay:{tag}`
