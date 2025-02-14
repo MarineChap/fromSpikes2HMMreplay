@@ -17,7 +17,7 @@ RUN pip install --no-cache-dir -r requirements.txt && \
     fix-permissions "/home/${NB_USER}"
 
 RUN git clone https://bitbucket.org/kloostermannerflab/py-compressed-kde.git && cd py-compressed-kde/python && python3 setup.py build_ext --inplace  && pip install -e .	
-RUN git clone https://bitbucket.org/kloostermannerflab/fklab-python-core.git && cd fklab-python-core && python3 setup.py build_ext --inplace && pip install -e . --no-deps
+RUN git clone https://penagos1@bitbucket.org/fk-decode/fklab-python-core.git && cd fklab-python-core && python3 setup.py build_ext --inplace && pip install -e . --no-deps
 RUN git clone https://github.com/KatharinaBracher/HippocampalSWRDynamics.git && cd HippocampalSWRDynamics &&  pip install -e . --no-deps
 
 RUN mkdir data
